@@ -11,14 +11,14 @@ def patternmatching(text: str, pattern: str) -> str:
     return ' '.join(indexes_of_matches)
 
 
-# if __name__ == '__main__':
-#     text = 'GATATATGCATATACTTTATAGATATC'
-#     pattern = 'GAT'
-#     print(patternmatching(text, pattern))
-
 if __name__ == '__main__':
-    file = open('Vibrio_cholerae.txt', 'r')
-    text = file.read()
-    pattern = 'CTTGATCAT'
+    text = 'GATATATGCATATACTTTATAGATATC'
+    pattern = 'GAT'
     print(patternmatching(text, pattern))
-    #print(text[:500])
+
+# if __name__ == '__main__':
+#     file = open('Vibrio_cholerae.txt', 'r')
+#     text = file.read()
+#     pattern = 'CTTGATCAT'
+#     print(patternmatching(text, pattern))
+#     #print(text[:500])

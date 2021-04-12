@@ -1,8 +1,8 @@
 def hammingdistance(text1: str, text2: str) -> int:
+    '''Finds the total character difference between two strings'''
     difference = 0
     if len(text1) != len(text2):
-        return None
-        #raise ValueError('Strings must have equal length to compute Hamming distance')
+        return 10000  # arbitrarily large number
 
     for i, base in enumerate(text1):
         if not text2[i] == base:

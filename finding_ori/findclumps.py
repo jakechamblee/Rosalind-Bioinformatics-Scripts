@@ -21,15 +21,12 @@ def findclumps(text, k, L, t):
             if freqmap[kmer] >= t:
                 patterns.add(kmer)
 
-    #listpatterns = [i for i in patterns]
     return patterns
-    #return listpatterns
 
-    # this needs to now check, for each window, if any of the kmers in the freqtable appear >= t times
-    # If so, append them to patterns. This does NOT need to track the position in the genome where these clumps occur.
 
 if __name__ == '__main__':
-    text = 'CGGACTCGACAGATGTGAAGAACGACAATGTGAAGACTCGACACGACAGAGTGAAGAGAAGAGGAAACATTGTAA'
+    text = 'CGGACTCGACAGATGTGAAGAAATGTGAAGACTGAGTGAAGAGAAGAGGAAACACGACACGACATTGCGACATAATGTACGAATGTAATGTGCCTATGGC'
     k = 5
-    print(frequencytable(text, k))
-    print(findclumps(text, k, 50, 4))
+    #print(frequencytable(text, k))
+    x = findclumps(text, k, 75, 4)
+    print(' '.join([x for x in x]))

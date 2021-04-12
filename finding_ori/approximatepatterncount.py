@@ -2,7 +2,7 @@ from typing import List
 from hammingdistance import hammingdistance
 
 
-def approximatepatternmatching(pattern: str, text: str, d: int):
+def approximatepatterncount(pattern: str, text: str, d: int):
     '''Finds the starting positions where a given pattern appears as a substring with up to d mismatches'''
     # d refers to the maximum allowable hamming distance
     matches: List[str] = []
@@ -12,10 +12,9 @@ def approximatepatternmatching(pattern: str, text: str, d: int):
         if hammingdistance(text[i:patternlength + i], pattern) <= d:
             matches.append(str(i))
 
-    return ' '.join(matches)
-
+    return len(matches)
 
 if __name__ == '__main__':
-    text1 = 'ATTCTGGA'
-    text2 = 'CGCCCGAATCCAGAACGCATTCCCATATTTCGGGACCACTGGCCTCCACGGTACGGACGTCAATCAAAT'
-    print(approximatepatternmatching(text1, text2, 3))
+    text1 = 'AAAAA'
+    text2 = 'AACAAGCTGATAAACATTTAAAGAG'
+    print(approximatepatterncount(text1, text2, 2))
