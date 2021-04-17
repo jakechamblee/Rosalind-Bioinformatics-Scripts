@@ -1,4 +1,5 @@
 def patterncount(txt:str, pattern: str) -> int:
+    """Count the number of occurences of a pattern in a string."""
     count = 0
     txt_length = len(txt)
     pattern_length = len(pattern)

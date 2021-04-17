@@ -38,3 +38,7 @@ class TestPatternMatching:
         # rev complement of GAT is ATC
         pattern = 'GAT'
         assert patternmatching(text, pattern) == '0 6 9'
+
+class TestBruteForceMotifFind:
+
+    def test_(self):

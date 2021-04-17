@@ -1,7 +1,8 @@
-def frequencytable(text, k):
+def frequencytable(text: str, k: int) -> dict:
+    """Generate table of all possible motifs in a string"""
     kmers = {}
 
-    for i in range(len(text) - (k + 1)):
+    for i in range(len(text) - k + 1):
         kmer = text[i:i + k]
         if kmer in kmers:
             kmers[kmer] += 1
@@ -25,8 +26,8 @@ def findclumps(text, k, L, t):
 
 
 if __name__ == '__main__':
-    text = 'CGGACTCGACAGATGTGAAGAAATGTGAAGACTGAGTGAAGAGAAGAGGAAACACGACACGACATTGCGACATAATGTACGAATGTAATGTGCCTATGGC'
-    k = 5
-    #print(frequencytable(text, k))
+    text = 'ATTTGGC'
+    k = 3
+    print(frequencytable(text, k))
     x = findclumps(text, k, 75, 4)
-    print(' '.join([x for x in x]))
+    #print(' '.join([x for x in x]))

@@ -1,5 +1,5 @@
-def neighbors(pattern: str, d: int):
-    '''Returns all combinations which match a given pattern with < d mismatches'''
+def neighbors(pattern: str, d: int) -> set:
+    """Return all combinations which match a given pattern with < d mismatches"""
     from hammingdistance import hammingdistance
     if d == 0:
         return len(pattern)
@@ -25,6 +25,7 @@ def neighbors(pattern: str, d: int):
 
 if __name__ == '__main__':
     text = 'TTA'
-    d = 3
+    d = 1
     x = neighbors(text, d)
+    print(neighbors(text, d))
     print(' '.join([i for i in x]))

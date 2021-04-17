@@ -1,5 +1,5 @@
 def frequentwords_with_mismatches_andrevcomp(text: str, k: int, d: int):
-    '''Finds all most frequent k-mers with up to d mismatches'''
+    """Finds all most frequent k-mers with up to d mismatches"""
     from neighbors import neighbors
     from reverse_complement import reverse_complement
 
