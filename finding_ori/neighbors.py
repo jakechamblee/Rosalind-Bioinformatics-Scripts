@@ -2,7 +2,7 @@ def neighbors(pattern: str, d: int) -> set:
     """Return all combinations which match a given pattern with < d mismatches"""
     from hammingdistance import hammingdistance
     if d == 0:
-        return len(pattern)
+        return pattern
 
     # base case which is returned at bottom of recursion
     if len(pattern) == 1:
@@ -25,7 +25,7 @@ def neighbors(pattern: str, d: int) -> set:
 
 if __name__ == '__main__':
     text = 'TTA'
-    d = 1
+    d = 0
     x = neighbors(text, d)
     print(neighbors(text, d))
-    print(' '.join([i for i in x]))
+    #print(' '.join([i for i in x]))

@@ -1,5 +1,5 @@
 def hammingdistance(text1: str, text2: str) -> int:
-    '''Finds the total character difference between two strings'''
+    '''Find the minimum number of substitutions required to change one string into the other'''
     difference = 0
     if len(text1) != len(text2):
         return 10000  # arbitrarily large number

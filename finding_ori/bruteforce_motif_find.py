@@ -15,17 +15,15 @@ def bruteforce_motif_find(dna: str, k: int, d: int) -> str:
         kmer_neighbors: List[str] = list(neighbors(kmer, d))
         for motif in kmer_neighbors:
             # Adds only if motif matches all lines in dna (with up to d mismatches)
-            if all(approximatepatternmatching(motif, line, d) for line in dna):
+            if all([approximatepatternmatching(motif, line, d) for line in dna]):
                 patterns.add(motif)
 
     return patterns
 
 
 if __name__ == '__main__':
-    text = '''ACCCTTTCGAAAGAGGTTGAATCTG
-GCTGTATTACATGAGTTGCCACACT
-CTACCATCCGACTCTTACCTGTATA
-ACCCTGAAGTTGTAGGAAACCCTAG
-ACCCTAAATAGAACGAGACCCGACA
-TGATTGCAAGCGGTCATATCACACT'''
-    print(' '.join(bruteforce_motif_find(text, k=5, d=1)))
+    text = '''ATTTGGC
+TGCCTTA
+CGGTATC
+GAAAATT'''
+    print(' '.join(bruteforce_motif_find(text, k=3, d=1)))

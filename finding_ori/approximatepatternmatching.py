@@ -12,10 +12,10 @@ def approximatepatternmatching(pattern: str, text: str, d: int):
         if hammingdistance(text[i:patternlength + i], pattern) <= d:
             matches.append(str(i))
 
-    return ' '.join(matches)
+    return matches
 
 
 if __name__ == '__main__':
     text1 = 'ATTCTGGA'
     text2 = 'CGCCCGAATCCAGAACGCATTCCCATATTTCGGGACCACTGGCCTCCACGGTACGGACGTCAATCAAAT'
-    print(approximatepatternmatching(text1, text2, 3))
+    print(' '.join(approximatepatternmatching(text1, text2, 3)))
