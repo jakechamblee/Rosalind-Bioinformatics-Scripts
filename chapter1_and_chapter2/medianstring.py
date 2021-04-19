@@ -1,13 +1,11 @@
-from distancebetweenpatternandstrings import distancebetweenpatternandstrings, split_dna
-from neighbors import neighbors
 from findclumps import frequencytable
 from distancebetweenpatternandstrings import distancebetweenpatternandstrings
 
 
-def medianstring(k: int, dna: str) -> str:
+def median_string(k: int, seqs: str) -> str:
     """Find kmer that minimizes summed hamming distances among all possible kmers, across all passed seqs."""
 
-    dna = dna.split('\n')  # because of input format
+    dna = split_string_on_newline(seqs)  # because of input format
     kmers_in_dna = set()
 
     # Generates all possible kmers in passed seqs of size k
@@ -27,11 +25,15 @@ def medianstring(k: int, dna: str) -> str:
     return median
 
 
+def split_string_on_newline(seqs: str):
+    return seqs.split('\n')
+
+
 if __name__ == '__main__':
     k = 3
-    dna = '''AAATTGACGCAT
+    text = '''AAATTGACGCAT
 GACGACCACGTT
 CGTCAGCGCCTG
 GCTGAGCACCGG
 AGTTCGGGACAG'''
-    print(medianstring(k, dna))
+    print(median_string(k, text))
