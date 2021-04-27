@@ -1,8 +1,8 @@
 from typing import Dict
 
 
-def distancebetweenpatternandstrings(pattern: str, dna: str) -> int:
-    '''Calculate minimized summation of hamming distances between a pattern and all DNA strings'''
+def distance_between_pattern_and_multiple_strings(pattern: str, dna: str) -> int:
+    """Calculate minimized summation of hamming distances between a pattern and all DNA strings"""
     from hammingdistance import hammingdistance
     from findclumps import frequencytable
 
@@ -21,15 +21,11 @@ def distancebetweenpatternandstrings(pattern: str, dna: str) -> int:
 
 
 def split_dna(dna: str):
-    '''Splits a whitespace separated string into a list'''
+    """Splits a whitespace separated string into a list"""
     return dna.split(' ')
-
-
-def all_strings(k):
-    return None
 
 
 if __name__ == '__main__':
     p = 'AAA'
     d = 'TTACCTTAAC GATATCTGTC ACGGCGTTCG CCCTAAAGAG CGTCAGAGGT'
-    print(distancebetweenpatternandstrings(p, split_dna(d)))
+    print(distance_between_pattern_and_multiple_strings(p, split_dna(d)))

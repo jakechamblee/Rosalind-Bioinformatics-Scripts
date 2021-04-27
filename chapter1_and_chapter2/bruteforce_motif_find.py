@@ -2,7 +2,10 @@ from typing import List
 
 
 def bruteforce_motif_find(dna: str, k: int, d: int) -> str:
-    """Find all (k, d) motifs that appear in all passed strings, of length k, with <= d mismatches."""
+    """Find all (k, d) motifs that appear in all passed strings, of length k, with <= d mismatches.
+
+        O(n**t *k *t) complexity
+    """
     from neighbors import neighbors
     from findclumps import frequencytable
     from approximatepatternmatching import approximatepatternmatching
