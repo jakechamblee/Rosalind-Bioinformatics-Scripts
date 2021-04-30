@@ -2,7 +2,7 @@ from typing import Dict
 
 
 def profile_most_probable_kmer(text: str, k: int, profile: list):
-    """Find a profile-most probable kmer in a string.
+    """Find a profile most-probable kmer in a string.
 
     i.e. the kmer that is most likely to be generated in text, given the profile
     """
@@ -57,6 +57,12 @@ if __name__ == '__main__':
 0.4 0.3 0.1 0.5 0.1
 0.3 0.3 0.5 0.2 0.4
 0.1 0.2 0.1 0.1 0.2'''
+    prof2 = '''0.0 0.0 0.0
+0.0 0.0 1.0
+1.0 1.0 0.0
+0.0 0.0 0.0
+    '''
     print(profile_most_probable_kmer(txt, 5, prof))
+    print(profile_most_probable_kmer('AAGAATCAGTCA', 3, prof2))
     #print(parse_profile_input_to_list(prof))
     #print(find_all_possible_kmers(txt, 5))
