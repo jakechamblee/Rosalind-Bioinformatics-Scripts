@@ -1,17 +1,15 @@
 from typing import Dict
 
 
-def profile_most_probable_kmer(text: str, k: int, profile: list):
+def find_profile_most_probable_kmer(text: str, k: int, profile: list):
     """Find a profile-most probable kmer in a string.
 
     i.e. the kmer that is most likely to be generated in text, given the profile
     """
     from math import prod
 
-    profile: Dict[str, int] = parse_profile_input_to_list(profile)
-    # find all possible kmers in text of size k
+    profile: Dict[str, int] = parse_profile_input_to_dict(profile)
     kmers: set = find_all_possible_kmers(text, k)
-    # find the probability of each kmer given profile
     lowest_kmer_probability = 0
     most_likely_kmer = None
 
@@ -39,7 +37,11 @@ def find_all_possible_kmers(text: str, k: int) -> set:
     return kmers_in_text
 
 
-def parse_profile_input_to_list(prof_split: str) -> dict:
+def parse_profile_input_to_dict(prof_split: str) -> dict:
+    '''Convert string profile to dictionary of lists of nucleotides
+
+    Ex: {'A': [0.2, 0.2, 0.3, 0.2, 0.3], 'G': [0.3, 0.3, 0.5, 0.2, 0.4]}
+    '''
     prof_split = prof_split.splitlines()
     prof_split = [i.split(' ') for i in prof_split]
     alanine, cytosine = {'A': [float(i) for i in prof_split[0]]}, {'C': [float(i) for i in prof_split[1]]}
@@ -57,6 +59,5 @@ if __name__ == '__main__':
 0.4 0.3 0.1 0.5 0.1
 0.3 0.3 0.5 0.2 0.4
 0.1 0.2 0.1 0.1 0.2'''
-    print(profile_most_probable_kmer(txt, 5, prof))
-    #print(parse_profile_input_to_list(prof))
-    #print(find_all_possible_kmers(txt, 5))
+    print(parse_profile_input_to_dict(prof))
+    print(find_profile_most_probable_kmer(txt, 5, prof))
