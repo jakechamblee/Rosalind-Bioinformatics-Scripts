@@ -2,6 +2,7 @@ from typing import List
 
 
 def patternmatching(text: str, pattern: str) -> str:
+    '''Find the indexes where a pattern appears in a text'''
     from reverse_complement import reverse_complement
 
     pattern_rev_complement: str = reverse_complement(pattern)
@@ -15,10 +16,3 @@ if __name__ == '__main__':
     text = 'GATATATGCATATACTTTATAGATATC'
     pattern = 'GAT'
     print(patternmatching(text, pattern))
-
-# if __name__ == '__main__':
-#     file = open('Vibrio_cholerae.txt', 'r')
-#     text = file.read()
-#     pattern = 'CTTGATCAT'
-#     print(patternmatching(text, pattern))
-#     #print(text[:500])
