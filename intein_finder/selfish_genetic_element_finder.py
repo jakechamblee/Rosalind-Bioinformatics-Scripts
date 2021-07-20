@@ -11,7 +11,7 @@ def get_intein_iprs() -> Set[str]:
 
     intein_iprs: List[str] = [request_intein_entries['results'][i]['metadata']['accession'] for i in
                               range(request_intein_entries['count'])]
-
+    # Returning a set b/c more time efficient when searching these in the future
     return set(intein_iprs)
 
 
@@ -38,12 +38,16 @@ def get_homing_endonuclease_iprs() -> Set[str]:
 # Now have a list of all interpro domains of interest, need to check this against the ipr domains predicted via
 # a galaxy interproscan run against a genome
 
+# Will be given a long string of nonsense with InterPro:IPRxxxxx in it somewhere
+# Want to pull the IPR plus 6 numbers following it and check if it exists in the set
+# If so, need to somehow either pull the annotation location / gene location or CDS and add to apollo as evidence track
+
 if __name__ == '__main__':
     inteins: List[str] = get_intein_iprs()
     transposases: List[str] = get_transposase_iprs()
     homing_endonucleases: List[str] = get_homing_endonuclease_iprs()
 
-    print(inteins)
+    print(transposases)
 # If so, get the position of that domain from the genome (need to figure out how to do this)
 
 
